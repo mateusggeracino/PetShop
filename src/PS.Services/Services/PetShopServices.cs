@@ -7,7 +7,7 @@ using PS.Services.ViewModels;
 
 namespace PS.Services.Services
 {
-    public class PetShopServices : IPetShopServices
+    public sealed class PetShopServices : IPetShopServices
     {
         private readonly IPetShopBusiness _petShopBusiness;
         private readonly IMapper _mapper;
@@ -30,7 +30,7 @@ namespace PS.Services.Services
 
         public PetViewModel Update(PetViewModel pet)
         {
-            var petShopEntity = Mapper.Map<Pet>(pet);
+            var petShopEntity = _mapper.Map<Pet>(pet);
             return _mapper.Map<PetViewModel>(_petShopBusiness.Update(petShopEntity));
         }
 

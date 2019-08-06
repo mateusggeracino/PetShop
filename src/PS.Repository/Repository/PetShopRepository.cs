@@ -4,7 +4,7 @@ using PS.Repository.Repository.Base;
 
 namespace PS.Repository.Repository
 {
-    public class PetShopRepository : Repository<Pet>, IPetShopRepository
+    public sealed class PetShopRepository : Repository<Pet>, IPetShopRepository
     {
         public PetShopRepository() : base("mongodb://localhost:27017", "developerdb05")
         {

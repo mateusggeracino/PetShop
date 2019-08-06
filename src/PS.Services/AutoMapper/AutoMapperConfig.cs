@@ -3,7 +3,7 @@ using PS.Services.AutoMapper.Profiles;
 
 namespace PS.Services.AutoMapper
 {
-    public class AutoMapperConfig
+    public sealed class AutoMapperConfig
     {
         public static MapperConfiguration Register()
         {

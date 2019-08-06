@@ -2,7 +2,7 @@
 
 namespace PS.Domain.Models
 {
-    public class Pet : Entity
+    public sealed class Pet : Entity
     {
         public string Name { get; set; } 
         public DateTime Registration { get; set; }

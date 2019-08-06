@@ -3,7 +3,7 @@ using PS.Domain.Models;
 
 namespace PS.Domain.Validations
 {
-    public class PetValidator : AbstractValidator<Pet>
+    public sealed class PetValidator : AbstractValidator<Pet>
     {
         public PetValidator()
         {

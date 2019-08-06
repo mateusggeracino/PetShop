@@ -10,7 +10,7 @@ namespace PS.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PetShopController : BaseController
+    public sealed class PetShopController : BaseController
     {
         private readonly IPetShopServices _petShopServices;
 
@@ -73,10 +73,11 @@ namespace PS.WebAPI.Controllers
         {
             try
             {
+                pet.Id = id;
                 _petShopServices.Update(pet);
                 return Ok("success");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new StatusCodeResult(500);
             }

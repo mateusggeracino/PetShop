@@ -2,7 +2,7 @@
 
 namespace PS.Repository.Factory
 {
-    public class ConnFactory
+    public sealed class ConnFactory
     {
         private readonly string _connectionString;
         public ConnFactory(string connectionString)
