@@ -9,7 +9,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Data Criação</th>
                 <th scope="col">Ativo</th>
@@ -21,14 +20,13 @@
             @foreach (var pet in Model)
             {
                 <tr>
-                    <th scope="row">@pet.Id</th>
-                    <td>@pet.Name</td>
+                    <th scope="row">@pet.Name</th>
                     <td>@pet.Registration</td>
                     <td>@pet.Alive</td>
                     <td>
-                        <a href="@Url.Action("Details")">Detalhes</a>
-                        <a href="@Url.Action("Edit")">Editar</a>
-                        <a href="@Url.Action("Delete")">Deletar</a>
+                        <a href="@Url.Action("Details", new {@id = pet.Id })">Detalhes</a>
+                        <a href="@Url.Action("Edit",new {@id = pet.Id })">Editar</a>
+                        <a href="@Url.Action("Delete",new {@id = pet.Id })">Deletar</a>
                     </td>
                 </tr>
             }
