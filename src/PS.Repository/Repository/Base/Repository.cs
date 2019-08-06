@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
 using PS.Domain.Models;
 using PS.Repository.Factory;
@@ -9,9 +10,9 @@ namespace PS.Repository.Repository.Base
     public class Repository<T> : IRepository<T> where T : Entity
     {
         protected readonly IMongoCollection<T> Collection;
-        public Repository(string connectionString, string databaseName)
+        public Repository(IConfiguration config, string databaseName)
         {
-            var connectionFactory = new ConnFactory(connectionString);
+            var connectionFactory = new ConnFactory(config);
             Collection = connectionFactory.GetDataBase(databaseName).GetCollection<T>(typeof(T).Name.ToLower());
         }
 

@@ -1,13 +1,15 @@
-﻿using MongoDB.Driver;
+﻿using System.Data;
+using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
 
 namespace PS.Repository.Factory
 {
     public sealed class ConnFactory
     {
         private readonly string _connectionString;
-        public ConnFactory(string connectionString)
+        public ConnFactory(IConfiguration config)
         {
-            _connectionString = connectionString;
+            _connectionString = config.GetConnectionString("DefaultConnection");
         }
         public IMongoClient GetClient()
         {
