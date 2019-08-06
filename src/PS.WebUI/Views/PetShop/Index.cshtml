@@ -1,0 +1,38 @@
+﻿@model IEnumerable<PS.Services.ViewModels.PetViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a class="btn btn-primary" href="@Url.Action("Create")">Adicionar um novo pet</a>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data Criação</th>
+                <th scope="col">Ativo</th>
+                <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var pet in Model)
+            {
+                <tr>
+                    <th scope="row">@pet.Id</th>
+                    <td>@pet.Name</td>
+                    <td>@pet.Registration</td>
+                    <td>@pet.Alive</td>
+                    <td>
+                        <a href="@Url.Action("Details")">Detalhes</a>
+                        <a href="@Url.Action("Edit")">Editar</a>
+                        <a href="@Url.Action("Delete")">Deletar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -8,4 +8,9 @@
     <PackageReference Include="FluentValidation" Version="8.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PS.Domain\PS.Domain.csproj" />
+    <ProjectReference Include="..\PS.Repository\PS.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
